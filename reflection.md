@@ -1,7 +1,7 @@
 # Reflection
 
-Student Name:  name
-Sudent Email:  email
+Student Name:  Brayden Dawson
+Sudent Email:  Bcdawson@syr.edu
 
 ## Instructions
 
@@ -22,4 +22,4 @@ Examples:
 **Best Reflection** "I learned when to use while vs for loops. While loops are for sentiel-controlled values (waiting for a condition to occur), vs for loops are for iterating over collections of fixed values."
 
 `--- Reflection Below This Line ---`
-
+This assignment helped me improve my ability to parse text data and work with JSON files. I learned how to extract package details, calculate total units, and handle errors efficiently. It improved my understanding of Python's string manipulation and file operations. Overall I enjoyed the assignment, and thought it was a good way to practice with parsing data.

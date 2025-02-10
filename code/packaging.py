@@ -18,8 +18,21 @@ def parse_packaging(packaging_data: str) -> list[dict]:
     input: "20 pieces in 1 pack / 10 packs in 1 carton / 4 cartons in 1 box"
     output: [{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]
     '''
-    pass # TODO: Replace this line and write code
-
+   
+    pass
+def parse_packaging(data: str):
+    result = []
+    for part in data.split("/"):
+        parts = part.strip().split(" in ")
+        first_qty, first_unit = parts[0].split(maxsplit=1)
+        result.append({first_unit: int(first_qty)})
+        if len(parts) > 1:
+            second_qty, second_unit = parts[1].split(maxsplit=1)
+            result.append({second_unit: int(second_qty)})
+    return result
+print(parse_packaging("12 eggs in 1 carton"))
+print(parse_packaging("6 bars in 1 pack / 12 packs in 1 carton"))
+print(parse_packaging("20 pieces in 1 pack / 10 packs in 1 carton / 4 cartons in 1 box"))
 
 def calc_total_units(package: list[dict]) -> int:
     '''
@@ -33,8 +46,15 @@ def calc_total_units(package: list[dict]) -> int:
     input: [{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]
     output: 800 (e.g. 20*10*4*1)
     '''
-    pass # TODO: Replace this line and write code
+    pass
 
+def calc_total_units(package: list[dict]) -> int:
+    total = 1
+    for item in package:
+        total *= list(item.values())[0]
+    return total
+print(calc_total_units([{ 'bars' : 6}, {'packs' : 12}, {'carton' : 1}]))
+print(calc_total_units([{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]))
 
 def get_unit(package: list[dict]) -> str:
     '''
@@ -50,6 +70,11 @@ def get_unit(package: list[dict]) -> str:
 
     '''
     pass # TODO: Replace this line and write code
+def get_unit(package: list[dict]) -> str:
+    return list(package[0].keys())[0] if package else ""
+print(get_unit([{ 'bars' : 6}, {'packs' : 12}, {'carton' : 1}]))
+print(get_unit([{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]))
+
 
 # This will only run from here, not when imported
 # # Use this for testing / debugging cases with the debugger
